@@ -38,12 +38,12 @@ docker-compose exec laravel.test npm run dev
 docker-compose stop
 ```
 
-## URL
+## URLを押下して正常に動いているか確認する。
 サンプルアプリ：http://localhost/
 
 phpMyAdmin: http://localhost:8080/
 
-## コマンドリファレンス
+## コマンドリファレンスは下記を参考にする。
 
 ```sh
 # MySQLコンソールにログイン
