@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('support_users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->unsignedInteger('phone_number');
+            $table->string('phone_number');
             $table->unsignedBigInteger('post_id');
             $table->string('password');
             $table->timestamps();
