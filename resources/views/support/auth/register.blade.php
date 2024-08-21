@@ -1,6 +1,6 @@
 <x-guest-layout>
-    <h1 class="text-black">高齢者の登録</h1>
-    <form method="POST" action="{{ route('register') }}">
+    <h1 class="text-black">サポーターの登録</h1>
+    <form method="POST" action="{{ route('support.register') }}">
         @csrf
 
         <!-- Name -->

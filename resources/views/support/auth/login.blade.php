@@ -2,8 +2,8 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <h1 class="text-white">高齢者のログイン</h1>
-    <form method="POST" action="{{ route('login') }}">
+    <h1 class="text-white">サポーターのログイン</h1>
+    <form method="POST" action="{{ route('support.login') }}">
         @csrf
 
         <!-- Phone number -->

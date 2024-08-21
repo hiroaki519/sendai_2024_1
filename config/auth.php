@@ -14,8 +14,8 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
-        'passwords' => 'users',
+        'guard' => 'senior',
+        'passwords' => 'senior',
     ],
 
     /*
@@ -36,9 +36,14 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'senior' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'senior',
+        ],
+
+        'support' => [
+            'driver' => 'session',
+            'provider' => 'support',
         ],
     ],
 
@@ -60,9 +65,14 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'senior' => [
             'driver' => 'eloquent',
             'model' => App\Models\SeniorUser::class,
+        ],
+
+        'support' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\SupportUser::class,
         ],
 
         // 'users' => [
@@ -91,8 +101,15 @@ return [
     */
 
     'passwords' => [
-        'users' => [
-            'provider' => 'users',
+        'senior' => [
+            'provider' => 'senior',
+            'table' => 'password_reset_tokens',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
+
+        'support' => [
+            'provider' => 'support',
             'table' => 'password_reset_tokens',
             'expire' => 60,
             'throttle' => 60,
