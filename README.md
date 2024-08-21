@@ -1,6 +1,6 @@
 # Relicサマーインターン（26卒）のサンプルアプリだーーー
 
-## 初回セットアップ手順（上から順番に実行）
+## 初回セットアップ手順（上から順番にコマンドを実行する）
 
 ```sh
 # 作業ディレクトリに移動して作業を進めてください 
@@ -25,14 +25,14 @@ docker-compose exec laravel.test npm run dev
 
 ここまで実行すると http://localhost/ でサンプルアプリにアクセスできます
 
-## 2回目以降の起動方法
+## 2回目以降の起動するときは下記のコマンドで実行する
 
 ```sh
 docker-compose up -d
 docker-compose exec laravel.test npm run dev
 ```
 
-## 停止する方法
+## 停止するときは下記のコマンドを実行する
 
 ```sh
 docker-compose stop
