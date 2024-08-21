@@ -10,10 +10,15 @@ class CreatePostsTable extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->text('body');
-            // $table->BigInteger('user_id')->unsigned();
-            // $table->foreign('user_id')->references('id')->on('users');
+            $table->string('distination_address');
+            $table->string('prefecture');
+            $table->string('city');
+            $table->string('current_location_address');
+            $table->dateTime('meet_up_time');
+            $table->string('body_condition');
+            $table->unsignedBigInteger('person_number');
+            $table->boolean('is_accepted');
+            $table->unsignedBigInteger('senior_user_id');
             $table->timestamps();
         });
     }
