@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/post/{id}', [PostController::class, 'destroy'])->name('post.destroy');
 
     Route::get('/myposts', [PostController::class, 'myPosts'])->name('myposts');
+
 });
 
 Route::group(['prefix' => 'support'], function () {
@@ -62,6 +63,11 @@ Route::group(['prefix' => 'support'], function () {
         // ダッシュボード
         Route::get('home', fn() => view('support.home'))
             ->name('support.home');
+
+        Route::get('approve', [PostController::class, 'approveIndex'])->name('support.approve.index');
+        Route::post('approve', [PostController::class, 'approve'])->name('support.approve');
+
+        Route::get('supporting', [PostController::class, 'supporting'])->name('supporting');
     });
 });
 
