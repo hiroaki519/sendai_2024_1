@@ -19,6 +19,7 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('person_number');
             $table->boolean('is_accepted');
             $table->unsignedBigInteger('senior_user_id');
+            $table->foreign('senior_user_id')->references('id')->on('senior_users');
             $table->timestamps();
         });
     }
