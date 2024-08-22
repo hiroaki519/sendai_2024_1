@@ -12,6 +12,10 @@ class Post extends Model
     {
         return $this->belongsTo(SeniorUser::class, 'senior_user_id');
     }
+    public function supportUser()
+    {
+        return $this->hasOne(SupportUser::class);
+    }
 }
 
 
