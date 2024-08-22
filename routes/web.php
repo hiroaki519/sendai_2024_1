@@ -49,10 +49,13 @@ Route::group(['prefix' => 'support'], function () {
     Route::post('register', [SupportRegisterController::class, 'store']);
 
     // ログイン
-    Route::get('login', [SupportLoginController::class, 'showLoginPage'])
+    Route::get('login', [SupportLoginController::class, 'create'])
         ->name('support.login');
 
-    Route::post('login', [SupportLoginController::class, 'login']);
+    Route::post('login', [SupportLoginController::class, 'store']);
+
+    Route::post('logout', [SupportLoginController::class, 'destroy'])
+                ->name('support.logout');
 
     // 以下の中は認証必須のエンドポイントとなる
     Route::middleware(['auth:support'])->group(function () {

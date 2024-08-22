@@ -2,7 +2,7 @@
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
-    <h1 class="text-white">高齢者のログイン</h1>
+    <h1 class="text-black">高齢者のログイン</h1>
     <form method="POST" action="{{ route('login') }}">
         @csrf
 
