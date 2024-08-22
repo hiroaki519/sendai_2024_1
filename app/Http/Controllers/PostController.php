@@ -80,5 +80,24 @@ class PostController extends Controller
 
         return redirect()->route('myposts')->with('success', '投稿が削除されました');
     }
+
+    public function approveIndex()
+    {
+        $posts = Post::all();
+        return view('support.approve', compact('posts'));
+    }
+
+    public function approve(Request $request)
+    {
+        $post=Post::find($request->id);
+        $post->is_accepted = true;
+        $post->save();
+    }
+
+    public function supporting()
+    {
+        $post = Post::where('is_accepted', true)->latest()->first();
+        return view('supporting', compact('posts'));
+    }
 }
 
