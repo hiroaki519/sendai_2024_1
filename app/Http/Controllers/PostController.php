@@ -22,14 +22,25 @@ class PostController extends Controller
     public function store(Request $request)
     {
         $validatedData = $request->validate([
-            'title' => 'required|string|max:255',
-            'body' => 'required|string',
+            'distination_address' => 'required|string',
+            'prefecture' => 'required|string',
+            'city' => 'required|string',
+            'current_location_address' => 'required|string',
+            'meet_up_time' => 'required|date_format:Y-m-d\TH:i',
+            'body_condition' => 'required|string',
+            'person_number' => 'required|integer|min:1',
         ]);
 
         $post = new Post();
-        $post->title = $validatedData['title'];
-        $post->body = $validatedData['body'];
-        $post->user_id = Auth::id();
+        $post->distination_address = $validatedData['distination_address'];
+        $post->prefecture = $validatedData['prefecture'];
+        $post->city = $validatedData['city'];
+        $post->current_location_address = $validatedData['current_location_address'];
+        $post->meet_up_time = $validatedData['meet_up_time'];
+        $post->body_condition = $validatedData['body_condition'];
+        $post->person_number = $validatedData['person_number'];
+        $post->is_accepted = false;
+        $post->senior_user_id = Auth::id();
         $post->save();
 
         return redirect()->route('post.index')->with('success', '投稿が作成されました');
