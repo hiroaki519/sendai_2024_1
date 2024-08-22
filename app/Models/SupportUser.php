@@ -43,8 +43,8 @@ class SupportUser extends Authenticatable
         'password' => 'hashed',
     ];
 
-    // public function posts()
-    // {
-    //     return $this->hasMany(Post::class, 'support_user_id');
-    // }
+    public function post()
+    {
+        return $this->belongsTo(Post::class, 'post_id');
+    }
 }

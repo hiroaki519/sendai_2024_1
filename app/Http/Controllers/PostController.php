@@ -92,12 +92,19 @@ class PostController extends Controller
         $post=Post::find($request->id);
         $post->is_accepted = true;
         $post->save();
+        
+        $supportUser=Auth::guard('support')->user();
+        $supportUser->post_id = $post->id;
+        $supportUser->save();
+
+
+        return redirect()->route('supporting')->with('success', '承諾しました。');
     }
 
     public function supporting()
     {
-        $post = Post::where('is_accepted', true)->latest()->first();
-        return view('supporting', compact('posts'));
+        $post = Auth::guard('support')->user()->post;
+        return view('support.supporting', compact('post'));
     }
 }
 
