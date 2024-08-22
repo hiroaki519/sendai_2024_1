@@ -47,6 +47,6 @@ class SupportLoginController extends Controller
 
         session()->flash('success', 'ログアウトしました!');
 
-        return redirect(route('support.login'));
+        return redirect()->intended(RouteServiceProvider::HOME);
     }
 }
