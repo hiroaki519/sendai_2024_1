@@ -16,17 +16,17 @@
                         <x-input-error :messages="$errors->get('distination_address')" class="mt-2" />
                     </div>
                     <div class="mb-4">
-                        <x-input-label for="prefecture" :value="__('現在の住所 都道府県')" />
+                        <x-input-label for="prefecture" :value="__('今いる場所の都道府県')" />
                         <x-text-input type="text" name="prefecture" id="prefecture" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:border-indigo-500" required/>
                         <x-input-error :messages="$errors->get('prefecture')" class="mt-2" />
                     </div>                    
                     <div class="mb-4">
-                        <x-input-label for="city" :value="__('市区町村')" />
+                        <x-input-label for="city" :value="__('今いる場所の市区町村')" />
                         <x-text-input type="text" name="city" id="city" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:border-indigo-500" required/>
                         <x-input-error :messages="$errors->get('city')" class="mt-2" />
                     </div>
                     <div class="mb-4">
-                        <x-input-label for="current_location_address" :value="__('それ以降')" />
+                        <x-input-label for="current_location_address" :value="__('今いる場所の住所 それ以降')" />
                         <x-text-input type="text" name="current_location_address" id="current_location_address" class="w-full border-gray-300 rounded-md shadow-sm focus:ring focus:ring-indigo-200 focus:border-indigo-500" required/>
                         <x-input-error :messages="$errors->get('current_location_address')" class="mt-2" />
                     </div>

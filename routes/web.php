@@ -51,6 +51,7 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::group(['prefix' => 'support'], function () {
+    Route::middleware('guest:support')->group(function () {
     // 登録
     Route::get('register', [SupportRegisterController::class, 'create'])
         ->name('support.register');
@@ -62,6 +63,8 @@ Route::group(['prefix' => 'support'], function () {
         ->name('support.login');
 
     Route::post('login', [SupportLoginController::class, 'store']);
+
+    });
 
     Route::post('logout', [SupportLoginController::class, 'destroy'])
                 ->name('support.logout');
@@ -76,6 +79,7 @@ Route::group(['prefix' => 'support'], function () {
         Route::post('approve', [PostController::class, 'approve'])->name('support.approve');
 
         Route::get('supporting', [PostController::class, 'supporting'])->name('supporting');
+        Route::post('supported', [PostController::class, 'supported'])->name('supported');
     });
 });
 
