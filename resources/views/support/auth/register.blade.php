@@ -15,10 +15,10 @@
         <div class="mt-4">
             <x-input-label for="phone_number" :value="__('電話番号')" />
             <x-text-input id="phone_number" class="block mt-1 w-full" 
-                            type="phone_number" 
+                            type="tel" 
                             name="phone_number" 
                             :value="old('phone_number')" 
-                            required autofocus autocomplete="username" />
+                            required autofocus autocomplete="tel" />
 
             <x-input-error :messages="$errors->get('phone_number')" class="mt-2" />
         </div>

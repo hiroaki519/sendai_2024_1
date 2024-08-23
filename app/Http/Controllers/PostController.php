@@ -10,7 +10,10 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::orderBy('updated_at', 'desc')->get();
+        $posts = Post::orderBy('updated_at', 'desc')
+        ->where('senior_user_id', Auth::user()->id)
+        ->where('is_supported', false)
+        ->get();
         return view('post.index', compact('posts'));
     }
 
@@ -83,7 +86,7 @@ class PostController extends Controller
 
     public function approveIndex()
     {
-        $posts = Post::all();
+        $posts = Post::where('is_accepted',false)->get();
         return view('support.approve', compact('posts'));
     }
 
@@ -105,6 +108,22 @@ class PostController extends Controller
     {
         $post = Auth::guard('support')->user()->post;
         return view('support.supporting', compact('post'));
+    }
+
+    public function supported(Request $request)
+    {
+        
+        
+        $supportUser=Auth::guard('support')->user();
+        
+        $post=$supportUser->post;
+        $post->is_supported=true;
+        $post->save();
+        
+        $supportUser->post_id = null;
+        $supportUser->save();
+
+        return redirect()->route('support.home')->with('success', '完了しました。');
     }
 }
 
