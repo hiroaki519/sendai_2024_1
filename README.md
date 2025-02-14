@@ -25,7 +25,7 @@ docker-compose exec laravel.test npm run dev
 
 ここまで実行すると http://localhost/ でサンプルアプリにアクセスできます
 
-## 2回目以降の起動するときは下記のコマンドで実行する
+## 2回目以降の起動するときは下記のコマンドで実行してください！
 
 ```sh
 docker-compose up -d
